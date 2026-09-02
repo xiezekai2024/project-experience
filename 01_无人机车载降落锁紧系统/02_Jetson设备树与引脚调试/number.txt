@@ -1,0 +1,559 @@
+nvidia@nvidia-desktop:/usr/lib/python3/dist-packages/Jetson/GPIO$
+
+home/nvidia/Desktop/test/jetson-gpio-master/lib/python/Jetson/GPIO/gpio_cdev.py:373: UserWarning: Could not open /dev/mem for pinmux check. If you want pinmux checks, make sure your user has permissions to read /dev/mem and that it exists. Error: [Errno 13] Permission denied: '/dev/mem'
+  warnings.warn('Could not open /dev/mem for pinmux check. If you want pinmux checks, make sure your user has permissions to read /dev/mem and that it exists. Error: ' + str(e))
+  
+  nvidia@nvidia-desktop:~/Desktop/test$ sudo python3 test.py 
+/usr/local/lib/python3.10/dist-packages/Jetson.GPIO-2.1.12-py3.10.egg/Jetson/GPIO/gpio_cdev.py:361: UserWarning: 
+[WARNING] User requested output for channel "29", but it is set to input in pinmux. For more information on resolving this, please see
+https://docs.nvidia.com/jetson/archives/r36.3/DeveloperGuide/HR/JetsonModuleAdaptationAndBringUp/JetsonOrinNxNanoSeries.html#generating-the-pinmux-dtsi-files
+
+This can be resolved *temporarily* (until next restart) by running:
+    sudo busybox devmem 0x2430068 w 0x8
+
+nvidia@nvidia-desktop:~/Desktop$ sudo cat /sys/kernel/debug/gpio
+gpiochip1: GPIOs 316-347, parent: platform/c2f0000.gpio, tegra234-gpio-aon:
+ gpio-316 (PAA.00              )
+ gpio-317 (PAA.01              )
+ gpio-318 (PAA.02              )
+ gpio-319 (PAA.03              )
+ gpio-320 (PAA.04              )
+ gpio-321 (PAA.05              |regulator-vdd-3v3-pc) out hi 
+ gpio-322 (PAA.06              )
+ gpio-323 (PAA.07              )
+ gpio-324 (PBB.00              )
+ gpio-325 (PBB.01              )
+ gpio-326 (PBB.02              )
+ gpio-327 (PBB.03              )
+ gpio-328 (PCC.00              )
+ gpio-329 (PCC.01              )
+ gpio-330 (PCC.02              )
+ gpio-331 (PCC.03              |mux                 ) out lo 
+ gpio-332 (PCC.04              )
+ gpio-333 (PCC.05              )
+ gpio-334 (PCC.06              )
+ gpio-335 (PCC.07              )
+ gpio-336 (PDD.00              )
+ gpio-337 (PDD.01              )
+ gpio-338 (PDD.02              )
+ gpio-339 (PEE.00              )
+ gpio-340 (PEE.01              )
+ gpio-341 (PEE.02              )
+ gpio-342 (PEE.03              )
+ gpio-343 (PEE.04              |Power               ) in  hi IRQ ACTIVE LOW
+ gpio-344 (PEE.05              )
+ gpio-345 (PEE.06              )
+ gpio-346 (PEE.07              )
+ gpio-347 (PGG.00              )
+gpiochip0: GPIOs 348-511, parent: platform/2200000.gpio, tegra234-gpio:
+ gpio-348 (PA.00               |regulator-vdd-3v3-sd) out lo 
+ gpio-349 (PA.01               )
+ gpio-350 (PA.02               )
+ gpio-351 (PA.03               )
+ gpio-352 (PA.04               )
+ gpio-353 (PA.05               )
+ gpio-354 (PA.06               )
+ gpio-355 (PA.07               )
+ gpio-356 (PB.00               )
+ gpio-357 (PC.00               )
+ gpio-358 (PC.01               )
+ gpio-359 (PC.02               )
+ gpio-360 (PC.03               )
+ gpio-361 (PC.04               )
+ gpio-362 (PC.05               )
+ gpio-363 (PC.06               )
+ gpio-364 (PC.07               )
+ gpio-365 (PD.00               )
+ gpio-366 (PD.01               )
+ gpio-367 (PD.02               )
+ gpio-368 (PD.03               )
+ gpio-369 (PE.00               )
+ gpio-370 (PE.01               )
+ gpio-371 (PE.02               )
+ gpio-372 (PE.03               )
+ gpio-373 (PE.04               )
+ gpio-374 (PE.05               )
+ gpio-375 (PE.06               )
+ gpio-376 (PE.07               )
+ gpio-377 (PF.00               )
+ gpio-378 (PF.01               )
+ gpio-379 (PF.02               )
+ gpio-380 (PF.03               )
+ gpio-381 (PF.04               )
+ gpio-382 (PF.05               )
+ gpio-383 (PG.00               |Force Recovery      ) in  hi IRQ ACTIVE LOW
+ gpio-384 (PG.01               )
+ gpio-385 (PG.02               )
+ gpio-386 (PG.03               )
+ gpio-387 (PG.04               )
+ gpio-388 (PG.05               )
+ gpio-389 (PG.06               )
+ gpio-390 (PG.07               )
+ gpio-391 (PH.00               )
+ gpio-392 (PH.01               )
+ gpio-393 (PH.02               )
+ gpio-394 (PH.03               |camera-control-outpu) out lo 
+ gpio-395 (PH.04               )
+ gpio-396 (PH.05               )
+ gpio-397 (PH.06               )
+ gpio-398 (PH.07               )
+ gpio-399 (PI.00               )
+ gpio-400 (PI.01               )
+ gpio-401 (PI.02               )
+ gpio-402 (PI.03               )
+ gpio-403 (PI.04               )
+ gpio-404 (PI.05               )
+ gpio-405 (PI.06               )
+ gpio-406 (PJ.00               )
+ gpio-407 (PJ.01               )
+ gpio-408 (PJ.02               )
+ gpio-409 (PJ.03               )
+ gpio-410 (PJ.04               )
+ gpio-411 (PJ.05               )
+ gpio-412 (PK.00               )
+ gpio-413 (PK.01               )
+ gpio-414 (PK.02               )
+ gpio-415 (PK.03               )
+ gpio-416 (PK.04               )
+ gpio-417 (PK.05               )
+ gpio-418 (PK.06               )
+ gpio-419 (PK.07               )
+ gpio-420 (PL.00               )
+ gpio-421 (PL.01               )
+ gpio-422 (PL.02               )
+ gpio-423 (PL.03               )
+ gpio-424 (PM.00               )
+ gpio-425 (PM.01               )
+ gpio-426 (PM.02               )
+ gpio-427 (PM.03               )
+ gpio-428 (PM.04               )
+ gpio-429 (PM.05               )
+ gpio-430 (PM.06               )
+ gpio-431 (PM.07               )
+ gpio-432 (PN.00               )
+ gpio-433 (PN.01               )
+ gpio-434 (PN.02               )
+ gpio-435 (PN.03               )
+ gpio-436 (PN.04               )
+ gpio-437 (PN.05               )
+ gpio-438 (PN.06               )
+ gpio-439 (PN.07               )
+ gpio-440 (PP.00               )
+ gpio-441 (PP.01               )
+ gpio-442 (PP.02               )
+ gpio-443 (PP.03               )
+ gpio-444 (PP.04               )
+ gpio-445 (PP.05               )
+ gpio-446 (PP.06               )
+ gpio-447 (PP.07               )
+ gpio-448 (PQ.00               )
+ gpio-449 (PQ.01               )
+ gpio-450 (PQ.02               )
+ gpio-451 (PQ.03               )
+ gpio-452 (PQ.04               )
+ gpio-453 (PQ.05               )
+ gpio-454 (PQ.06               )
+ gpio-455 (PQ.07               )
+ gpio-456 (PR.00               )
+ gpio-457 (PR.01               )
+ gpio-458 (PR.02               )
+ gpio-459 (PR.03               )
+ gpio-460 (PR.04               )
+ gpio-461 (PR.05               )
+ gpio-462 (PX.00               )
+ gpio-463 (PX.01               )
+ gpio-464 (PX.02               )
+ gpio-465 (PX.03               )
+ gpio-466 (PX.04               )
+ gpio-467 (PX.05               )
+ gpio-468 (PX.06               )
+ gpio-469 (PX.07               )
+ gpio-470 (PY.00               )
+ gpio-471 (PY.01               )
+ gpio-472 (PY.02               )
+ gpio-473 (PY.03               )
+ gpio-474 (PY.04               )
+ gpio-475 (PY.05               )
+ gpio-476 (PY.06               )
+ gpio-477 (PY.07               )
+ gpio-478 (PZ.00               )
+ gpio-479 (PZ.01               )
+ gpio-480 (PZ.02               )
+ gpio-481 (PZ.03               )
+ gpio-482 (PZ.04               )
+ gpio-483 (PZ.05               )
+ gpio-484 (PZ.06               )
+ gpio-485 (PZ.07               )
+ gpio-486 (PAC.00              )
+ gpio-487 (PAC.01              )
+ gpio-488 (PAC.02              )
+ gpio-489 (PAC.03              )
+ gpio-490 (PAC.04              )
+ gpio-491 (PAC.05              )
+ gpio-492 (PAC.06              )
+ gpio-493 (PAC.07              )
+ gpio-494 (PAD.00              )
+ gpio-495 (PAD.01              )
+ gpio-496 (PAD.02              )
+ gpio-497 (PAD.03              )
+ gpio-498 (PAE.00              )
+ gpio-499 (PAE.01              )
+ gpio-500 (PAF.00              )
+ gpio-501 (PAF.01              )
+ gpio-502 (PAF.02              )
+ gpio-503 (PAF.03              )
+ gpio-504 (PAG.00              )
+ gpio-505 (PAG.01              )
+ gpio-506 (PAG.02              )
+ gpio-507 (PAG.03              )
+ gpio-508 (PAG.04              )
+ gpio-509 (PAG.05              )
+ gpio-510 (PAG.06              )
+ gpio-511 (PAG.07              )
+ 
+ nvidia@nvidia-desktop:~/Desktop$ sudo devmem2 0x2430068
+/dev/mem opened.
+Memory mapped at address 0xffff80bfb000.
+Value at address 0x2430068 (0xffff80bfb068): 0x58
+
+nvidia@nvidia-desktop:~/Desktop$ sudo grep -R "GPIO01" /sys/kernel/debug/pinctrl
+grep: /sys/kernel/debug/pinctrl/c300000.pinmux/pinmux-select: 无效的参数
+grep: /sys/kernel/debug/pinctrl/2430000.pinmux/pinmux-select: 无效的参数
+nvidia@nvidia-desktop:~/Desktop$ sudo grep -R "29" /sys/kernel/debug/pinctrl
+/sys/kernel/debug/pinctrl/c300000.pinmux/pinconf-groups:29 (ao_retention_n_pee2): 
+/sys/kernel/debug/pinctrl/c300000.pinmux/pinconf-pins:pin 29 (SOC_GPIO27_PEE6): 
+grep: /sys/kernel/debug/pinctrl/c300000.pinmux/pinmux-select: 无效的参数
+/sys/kernel/debug/pinctrl/c300000.pinmux/pinmux-pins:pin 29 (SOC_GPIO27_PEE6): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+/sys/kernel/debug/pinctrl/c300000.pinmux/pinmux-functions:function 29: qspi1, groups = [ ]
+/sys/kernel/debug/pinctrl/c300000.pinmux/pingroups:pin 29 (SOC_GPIO27_PEE6)
+/sys/kernel/debug/pinctrl/c300000.pinmux/pins:pin 29 (SOC_GPIO27_PEE6) 29:tegra234-gpio-aon  c300000.pinmux
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinconf-groups:29 (eqos_rxc_pf3): 
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinconf-groups:112 (soc_gpio29_pq2): 
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinconf-groups:129 (gen1_i2c_scl_pi3): 
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinconf-pins:pin 29 (EQOS_RD2_PF0): 
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinconf-pins:pin 102 (SOC_GPIO29_PQ2): 
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinconf-pins:pin 129 (UART5_RTS_PY7): 
+grep: /sys/kernel/debug/pinctrl/2430000.pinmux/pinmux-select: 无效的参数
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinmux-pins:pin 29 (EQOS_RD2_PF0): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinmux-pins:pin 102 (SOC_GPIO29_PQ2): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinmux-pins:pin 129 (UART5_RTS_PY7): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinmux-functions:function 7: rsvd0, groups = [ soc_gpio08_pb0 pex_wake_n_pl2 soc_gpio34_pl3 gpu_pwr_req_px0 cv_pwr_req_px1 soc_gpio29_pq2 soc_gpio30_pq3 soc_gpio31_pq4 soc_gpio32_pq5 soc_gpio33_pq6 soc_gpio35_pq7 soc_gpio56_pr1 cpu_pwr_req_pi5 soc_gpio20_pg7 soc_gpio21_ph0 soc_gpio22_ph1 soc_gpio13_pg0 soc_gpio14_pg1 soc_gpio15_pg2 soc_gpio16_pg3 soc_gpio17_pg4 soc_gpio18_pg5 soc_gpio41_ph7 soc_gpio42_pi0 soc_gpio43_pi1 soc_gpio44_pi2 soc_gpio06_ph2 soc_gpio45_pad0 soc_gpio46_pad1 soc_gpio47_pad2 soc_gpio48_pad3 soc_gpio57_pac4 soc_gpio58_pac5 soc_gpio60_pac7 ]
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinmux-functions:function 29: qspi1, groups = [ qspi1_io3_pd3 qspi1_io2_pd2 qspi1_io1_pd1 qspi1_io0_pd0 qspi1_sck_pc6 qspi1_cs_n_pc7 ]
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinmux-functions:function 63: nv, groups = [ soc_gpio29_pq2 soc_gpio60_pac7 ]
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinmux-functions:function 72: rsvd2, groups = [ soc_gpio08_pb0 soc_gpio55_pm4 soc_gpio38_pm7 soc_gpio39_pn1 soc_gpio40_pn2 dp_aux_ch0_hpd_pm0 dp_aux_ch1_hpd_pm1 dp_aux_ch1_p_pn3 dp_aux_ch1_n_pn4 dp_aux_ch2_p_pn5 dp_aux_ch2_n_pn6 dp_aux_ch3_p_pn7 dp_aux_ch3_n_pn0 eqos_td3_pe4 eqos_td2_pe3 eqos_td1_pe2 eqos_td0_pe1 eqos_rd3_pf1 eqos_rd2_pf0 eqos_rd1_pe7 eqos_sma_mdio_pf4 eqos_rd0_pe6 eqos_sma_mdc_pf5 eqos_comp eqos_txc_pe0 eqos_rxc_pf3 eqos_tx_ctl_pe5 eqos_rx_ctl_pf2 pex_l2_clkreq_n_pk4 pex_wake_n_pl2 pex_l1_clkreq_n_pk2 pex_l1_rst_n_pk3 pex_l0_clkreq_n_pk0 pex_l0_rst_n_pk1 pex_l2_rst_n_pk5 pex_l3_clkreq_n_pk6 pex_l3_rst_n_pk7 pex_l4_clkreq_n_pl0 pex_l4_rst_n_pl1 soc_gpio34_pl3 pex_l5_clkreq_n_paf0 pex_l5_rst_n_paf1 pex_l6_clkreq_n_paf2 pex_l6_rst_n_paf3 pex_l10_clkreq_n_pag6 pex_l10_rst_n_pag7 pex_l7_clkreq_n_pag0 pex_l7_rst_n_pag1 pex_l8_clkreq_n_pag2 pex_l8_rst_n_pag3 pex_l9_clkreq_n_pag4 pex_l9_rst_n_pag5 qspi0_io3_pc5 qspi0_io2_pc4 qspi0_io1_pc3 qspi0_io0_pc2 qspi0_sck_pc0 qspi0_cs_n_pc1 qspi1_io3_pd3 qspi1_io2_pd2 qspi1_io1_pd1 qspi1_io0_pd0 qspi1_sck_pc6 qspi1_cs_n_pc7 qspi_comp sdmmc1_clk_pj0 sdmmc1_cmd_pj1 sdmmc1_comp sdmmc1_dat3_pj5 sdmmc1_dat2_pj4 sdmmc1_dat1_pj3 sdmmc1_dat0_pj2 ufs0_rst_n_pae1 ufs0_ref_clk_pae0 spi3_miso_py1 spi1_cs0_pz6 spi3_cs0_py3 spi1_miso_pz4 spi3_cs1_py4 spi1_sck_pz3 spi3_sck_py0 spi1_cs1_pz7 spi1_mosi_pz5 spi3_mosi_py2 uart2_tx_px4 uart2_rx_px5 uart2_rts_px6 uart2_cts_px7 uart5_tx_py5 uart5_rx_py6 uart5_rts_py7 uart5_cts_pz0 gpu_pwr_req_px0 gp_pwm3_px3 gp_pwm2_px2 cv_pwr_req_px1 usb_vbus_en0_pz1 usb_vbus_en1_pz2 extperiph2_clk_pp1 extperiph1_clk_pp0 cam_i2c_sda_pp3 pwr_i2c_scl_pp7 pwr_i2c_sda_pq0 soc_gpio29_pq2 soc_gpio30_pq3 soc_gpio31_pq4 uart1_cts_pr5 uart1_rts_pr4 uart1_rx_pr3 uart1_tx_pr2 cpu_pwr_req_pi5 uart4_rts_ph5 uart4_tx_ph3 gen1_i2c_scl_pi3 gen1_i2c_sda_pi4 soc_gpio20_pg7 soc_gpio13_pg0 soc_gpio14_pg1 soc_gpio15_pg2 soc_gpio16_pg3 soc_gpio17_pg4 soc_gpio18_pg5 soc_gpio19_pg6 soc_gpio41_ph7 soc_gpio42_pi0 soc_gpio43_pi1 soc_gpio44_pi2 soc_gpio06_ph2 soc_gpio07_pi6 dap4_sclk_pa4 dap4_dout_pa5 dap4_din_pa6 dap4_fs_pa7 dap6_sclk_pa0 dap6_dout_pa1 dap6_din_pa2 dap6_fs_pa3 soc_gpio45_pad0 soc_gpio46_pad1 soc_gpio47_pad2 soc_gpio48_pad3 soc_gpio57_pac4 soc_gpio58_pac5 soc_gpio59_pac6 ]
+/sys/kernel/debug/pinctrl/2430000.pinmux/pinmux-functions:function 84: rsvd3, groups = [ soc_gpio08_pb0 soc_gpio36_pm5 soc_gpio53_pm6 soc_gpio55_pm4 soc_gpio38_pm7 soc_gpio39_pn1 soc_gpio40_pn2 dp_aux_ch0_hpd_pm0 dp_aux_ch1_hpd_pm1 dp_aux_ch2_hpd_pm2 dp_aux_ch3_hpd_pm3 dp_aux_ch1_p_pn3 dp_aux_ch1_n_pn4 dp_aux_ch2_p_pn5 dp_aux_ch2_n_pn6 dp_aux_ch3_p_pn7 dp_aux_ch3_n_pn0 eqos_td3_pe4 eqos_td2_pe3 eqos_td1_pe2 eqos_td0_pe1 eqos_rd3_pf1 eqos_rd2_pf0 eqos_rd1_pe7 eqos_sma_mdio_pf4 eqos_rd0_pe6 eqos_sma_mdc_pf5 eqos_comp eqos_txc_pe0 eqos_rxc_pf3 eqos_tx_ctl_pe5 eqos_rx_ctl_pf2 pex_l2_clkreq_n_pk4 pex_wake_n_pl2 pex_l1_clkreq_n_pk2 pex_l1_rst_n_pk3 pex_l0_clkreq_n_pk0 pex_l0_rst_n_pk1 pex_l2_rst_n_pk5 pex_l3_clkreq_n_pk6 pex_l3_rst_n_pk7 pex_l4_clkreq_n_pl0 pex_l4_rst_n_pl1 soc_gpio34_pl3 pex_l5_clkreq_n_paf0 pex_l5_rst_n_paf1 pex_l6_clkreq_n_paf2 pex_l6_rst_n_paf3 pex_l10_clkreq_n_pag6 pex_l10_rst_n_pag7 pex_l7_clkreq_n_pag0 pex_l7_rst_n_pag1 pex_l8_clkreq_n_pag2 pex_l8_rst_n_pag3 pex_l9_clkreq_n_pag4 pex_l9_rst_n_pag5 qspi0_io3_pc5 qspi0_io2_pc4 qspi0_io1_pc3 qspi0_io0_pc2 qspi0_sck_pc0 qspi0_cs_n_pc1 qspi1_io3_pd3 qspi1_io2_pd2 qspi1_io1_pd1 qspi1_io0_pd0 qspi1_sck_pc6 qspi1_cs_n_pc7 qspi_comp sdmmc1_clk_pj0 sdmmc1_cmd_pj1 sdmmc1_comp sdmmc1_dat3_pj5 sdmmc1_dat2_pj4 sdmmc1_dat1_pj3 sdmmc1_dat0_pj2 ufs0_rst_n_pae1 ufs0_ref_clk_pae0 spi3_miso_py1 spi1_cs0_pz6 spi3_cs0_py3 spi1_miso_pz4 spi3_cs1_py4 spi1_sck_pz3 spi3_sck_py0 spi1_cs1_pz7 spi1_mosi_pz5 spi3_mosi_py2 uart2_tx_px4 uart2_rx_px5 uart2_rts_px6 uart2_cts_px7 uart5_tx_py5 uart5_rx_py6 uart5_rts_py7 uart5_cts_pz0 gpu_pwr_req_px0 gp_pwm3_px3 gp_pwm2_px2 cv_pwr_req_px1 usb_vbus_en0_pz1 usb_vbus_en1_pz2 extperiph2_clk_pp1 extperiph1_clk_pp0 pwr_i2c_scl_pp7 pwr_i2c_sda_pq0 soc_gpio28_pq1 soc_gpio29_pq2 soc_gpio30_pq3 soc_gpio31_pq4 soc_gpio32_pq5 soc_gpio33_pq6 soc_gpio35_pq7 uart1_cts_pr5 uart1_rts_pr4 uart1_rx_pr3 uart1_tx_pr2 cpu_pwr_req_pi5 uart4_cts_ph6 uart4_rts_ph5 uart4_rx_ph4 uart4_tx_ph3 gen1_i2c_scl_pi3 gen1_i2c_sda_pi4 soc_gpio20_pg7 soc_gpio21_ph0 soc_gpio22_ph1 soc_gpio13_pg0 soc_gpio14_pg1 soc_gpio15_pg2 soc_gpio16_pg3 soc_gpio17_pg4 soc_gpio18_pg5 soc_gpio19_pg6 soc_gpio41_ph7 soc_gpio42_pi0 soc_gpio43_pi1 soc_gpio44_pi2 soc_gpio06_ph2 soc_gpio07_pi6 dap4_sclk_pa4 dap4_dout_pa5 dap4_din_pa6 dap4_fs_pa7 dap6_sclk_pa0 dap6_dout_pa1 dap6_din_pa2 dap6_fs_pa3 soc_gpio45_pad0 soc_gpio46_pad1 soc_gpio47_pad2 soc_gpio48_pad3 soc_gpio59_pac6 spi5_cs0_pac3 spi5_miso_pac1 spi5_mosi_pac2 spi5_sck_pac0 ]
+/sys/kernel/debug/pinctrl/2430000.pinmux/pingroups:pin 29 (EQOS_RD2_PF0)
+/sys/kernel/debug/pinctrl/2430000.pinmux/pingroups:pin 129 (UART5_RTS_PY7)
+/sys/kernel/debug/pinctrl/2430000.pinmux/pingroups:group: soc_gpio29_pq2
+/sys/kernel/debug/pinctrl/2430000.pinmux/pingroups:pin 102 (SOC_GPIO29_PQ2)
+/sys/kernel/debug/pinctrl/2430000.pinmux/pins:pin 29 (EQOS_RD2_PF0) 29:tegra234-gpio  2430000.pinmux
+/sys/kernel/debug/pinctrl/2430000.pinmux/pins:pin 102 (SOC_GPIO29_PQ2) 102:tegra234-gpio  2430000.pinmux
+/sys/kernel/debug/pinctrl/2430000.pinmux/pins:pin 129 (UART5_RTS_PY7) 129:tegra234-gpio  2430000.pinmux
+
+sudo cat /sys/kernel/debug/pinctrl/c300000.pinmux/pinmux-pins | grep "SOC_GPIO27_PEE6"
+pin 29 (SOC_GPIO27_PEE6): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+
+nvidia@nvidia-desktop:~/Desktop/test$ sudo python3 test2.py
+Initializing GPIO: chip=gpiochip0, line offset=416...
+Traceback (most recent call last):
+  File "/home/nvidia/Desktop/test/test2.py", line 54, in <module>
+    main()
+  File "/home/nvidia/Desktop/test/test2.py", line 23, in main
+    line = chip.get_line(LINE_OFFSET)
+OSError: [Errno 22] Invalid argument
+
+nvidia@nvidia-desktop:~/Desktop$ gpioinfo
+gpiochip0 - 164 lines:
+	line   0:      "PA.00" "regulator-vdd-3v3-sd" output active-high [used]
+	line   1:      "PA.01"       unused   input  active-high 
+	line   2:      "PA.02"       unused   input  active-high 
+	line   3:      "PA.03"       unused   input  active-high 
+	line   4:      "PA.04"       unused   input  active-high 
+	line   5:      "PA.05"       unused   input  active-high 
+	line   6:      "PA.06"       unused   input  active-high 
+	line   7:      "PA.07"       unused   input  active-high 
+	line   8:      "PB.00"       unused   input  active-high 
+	line   9:      "PC.00"       unused   input  active-high 
+	line  10:      "PC.01"       unused   input  active-high 
+	line  11:      "PC.02"       unused   input  active-high 
+	line  12:      "PC.03"       unused   input  active-high 
+	line  13:      "PC.04"       unused   input  active-high 
+	line  14:      "PC.05"       unused   input  active-high 
+	line  15:      "PC.06"       unused   input  active-high 
+	line  16:      "PC.07"       unused   input  active-high 
+	line  17:      "PD.00"       unused   input  active-high 
+	line  18:      "PD.01"       unused   input  active-high 
+	line  19:      "PD.02"       unused   input  active-high 
+	line  20:      "PD.03"       unused   input  active-high 
+	line  21:      "PE.00"       unused   input  active-high 
+	line  22:      "PE.01"       unused   input  active-high 
+	line  23:      "PE.02"       unused   input  active-high 
+	line  24:      "PE.03"       unused   input  active-high 
+	line  25:      "PE.04"       unused   input  active-high 
+	line  26:      "PE.05"       unused   input  active-high 
+	line  27:      "PE.06"       unused   input  active-high 
+	line  28:      "PE.07"       unused   input  active-high 
+	line  29:      "PF.00"       unused   input  active-high 
+	line  30:      "PF.01"       unused   input  active-high 
+	line  31:      "PF.02"       unused   input  active-high 
+	line  32:      "PF.03"       unused   input  active-high 
+	line  33:      "PF.04"       unused   input  active-high 
+	line  34:      "PF.05"       unused   input  active-high 
+	line  35:      "PG.00" "Force Recovery" input active-low [used]
+	line  36:      "PG.01"       unused   input  active-high 
+	line  37:      "PG.02"       unused   input  active-high 
+	line  38:      "PG.03"       unused   input  active-high 
+	line  39:      "PG.04"       unused   input  active-high 
+	line  40:      "PG.05"       unused   input  active-high 
+	line  41:      "PG.06"       unused   input  active-high 
+	line  42:      "PG.07"       unused   input  active-high 
+	line  43:      "PH.00"       unused   input  active-high 
+	line  44:      "PH.01"       unused   input  active-high 
+	line  45:      "PH.02"       unused   input  active-high 
+	line  46:      "PH.03" "camera-control-output-low" output active-high [used]
+	line  47:      "PH.04"       unused   input  active-high 
+	line  48:      "PH.05"       unused   input  active-high 
+	line  49:      "PH.06"       unused  output  active-high 
+	line  50:      "PH.07"       unused   input  active-high 
+	line  51:      "PI.00"       unused   input  active-high 
+	line  52:      "PI.01"       unused   input  active-high 
+	line  53:      "PI.02"       unused   input  active-high 
+	line  54:      "PI.03"       unused   input  active-high 
+	line  55:      "PI.04"       unused   input  active-high 
+	line  56:      "PI.05"       kernel   input  active-high [used]
+	line  57:      "PI.06"       unused   input  active-high 
+	line  58:      "PJ.00"       unused   input  active-high 
+	line  59:      "PJ.01"       unused   input  active-high 
+	line  60:      "PJ.02"       unused   input  active-high 
+	line  61:      "PJ.03"       unused   input  active-high 
+	line  62:      "PJ.04"       unused   input  active-high 
+	line  63:      "PJ.05"       unused   input  active-high 
+	line  64:      "PK.00"       unused   input  active-high 
+	line  65:      "PK.01"       unused   input  active-high 
+	line  66:      "PK.02"       unused   input  active-high 
+	line  67:      "PK.03"       unused   input  active-high 
+	line  68:      "PK.04"       unused  output  active-high 
+	line  69:      "PK.05"       unused  output  active-high 
+	line  70:      "PK.06"       unused   input  active-high 
+	line  71:      "PK.07"       unused   input  active-high 
+	line  72:      "PL.00"       unused   input  active-high 
+	line  73:      "PL.01"       unused   input  active-high 
+	line  74:      "PL.02"       unused   input  active-high 
+	line  75:      "PL.03"       unused   input  active-high 
+	line  76:      "PM.00"       kernel   input  active-high [used]
+	line  77:      "PM.01"       unused   input  active-high 
+	line  78:      "PM.02"       unused   input  active-high 
+	line  79:      "PM.03"       unused   input  active-high 
+	line  80:      "PM.04"       unused   input  active-high 
+	line  81:      "PM.05"       unused   input  active-high 
+	line  82:      "PM.06"       unused   input  active-high 
+	line  83:      "PM.07"       unused   input  active-high 
+	line  84:      "PN.00"       unused   input  active-high 
+	line  85:      "PN.01"       unused   input  active-high 
+	line  86:      "PN.02"       unused   input  active-high 
+	line  87:      "PN.03"       unused   input  active-high 
+	line  88:      "PN.04"       unused   input  active-high 
+	line  89:      "PN.05"       unused   input  active-high 
+	line  90:      "PN.06"       unused   input  active-high 
+	line  91:      "PN.07"       unused   input  active-high 
+	line  92:      "PP.00"       unused   input  active-high 
+	line  93:      "PP.01"       unused   input  active-high 
+	line  94:      "PP.02"       unused   input  active-high 
+	line  95:      "PP.03"       unused   input  active-high 
+	line  96:      "PP.04"       unused   input  active-high 
+	line  97:      "PP.05"       unused   input  active-high 
+	line  98:      "PP.06"       unused   input  active-high 
+	line  99:      "PP.07"       unused   input  active-high 
+	line 100:      "PQ.00"       unused   input  active-high 
+	line 101:      "PQ.01"       unused   input  active-high 
+	line 102:      "PQ.02"       unused   input  active-high 
+	line 103:      "PQ.03"       unused  output  active-high 
+	line 104:      "PQ.04"       unused   input  active-high 
+	line 105:      "PQ.05"       unused   input  active-high 
+	line 106:      "PQ.06"       unused   input  active-high 
+	line 107:      "PQ.07"       unused   input  active-high 
+	line 108:      "PR.00"       unused   input  active-high 
+	line 109:      "PR.01"       unused   input  active-high 
+	line 110:      "PR.02"       unused   input  active-high 
+	line 111:      "PR.03"       unused   input  active-high 
+	line 112:      "PR.04"       unused   input  active-high 
+	line 113:      "PR.05"       unused   input  active-high 
+	line 114:      "PX.00"       kernel   input  active-high [used]
+	line 115:      "PX.01"       kernel   input  active-high [used]
+	line 116:      "PX.02"       unused   input  active-high 
+	line 117:      "PX.03"       unused   input  active-high 
+	line 118:      "PX.04"       unused   input  active-high 
+	line 119:      "PX.05"       unused   input  active-high 
+	line 120:      "PX.06"       unused   input  active-high 
+	line 121:      "PX.07"       unused   input  active-high 
+	line 122:      "PY.00"       unused   input  active-high 
+	line 123:      "PY.01"       unused   input  active-high 
+	line 124:      "PY.02"       unused   input  active-high 
+	line 125:      "PY.03"       unused   input  active-high 
+	line 126:      "PY.04"       unused   input  active-high 
+	line 127:      "PY.05"       unused   input  active-high 
+	line 128:      "PY.06"       unused   input  active-high 
+	line 129:      "PY.07"       unused   input  active-high 
+	line 130:      "PZ.00"       unused   input  active-high 
+	line 131:      "PZ.01"  "interrupt"   input  active-high [used]
+	line 132:      "PZ.02"       unused   input  active-high 
+	line 133:      "PZ.03"       unused   input  active-high 
+	line 134:      "PZ.04"       unused   input  active-high 
+	line 135:      "PZ.05"       unused   input  active-high 
+	line 136:      "PZ.06"       unused   input  active-high 
+	line 137:      "PZ.07"       unused   input  active-high 
+	line 138:     "PAC.00"       unused  output  active-high 
+	line 139:     "PAC.01"       unused   input  active-high 
+	line 140:     "PAC.02"       unused   input  active-high 
+	line 141:     "PAC.03"       unused   input  active-high 
+	line 142:     "PAC.04"       unused   input  active-high 
+	line 143:     "PAC.05"       unused   input  active-high 
+	line 144:     "PAC.06"       unused   input  active-high 
+	line 145:     "PAC.07"       unused   input  active-high 
+	line 146:     "PAD.00"       unused   input  active-high 
+	line 147:     "PAD.01"       unused   input  active-high 
+	line 148:     "PAD.02"       unused   input  active-high 
+	line 149:     "PAD.03"       unused   input  active-high 
+	line 150:     "PAE.00"       unused   input  active-high 
+	line 151:     "PAE.01"       unused   input  active-high 
+	line 152:     "PAF.00"       unused   input  active-high 
+	line 153:     "PAF.01"       unused   input  active-high 
+	line 154:     "PAF.02"       unused   input  active-high 
+	line 155:     "PAF.03"       unused   input  active-high 
+	line 156:     "PAG.00"       unused   input  active-high 
+	line 157:     "PAG.01"       unused   input  active-high 
+	line 158:     "PAG.02"       unused   input  active-high 
+	line 159:     "PAG.03"       unused   input  active-high 
+	line 160:     "PAG.04"       unused   input  active-high 
+	line 161:     "PAG.05"       unused   input  active-high 
+	line 162:     "PAG.06"       unused   input  active-high 
+	line 163:     "PAG.07"       unused   input  active-high 
+gpiochip1 - 32 lines:
+	line   0:     "PAA.00"       unused   input  active-high 
+	line   1:     "PAA.01"       unused   input  active-high 
+	line   2:     "PAA.02"       unused   input  active-high 
+	line   3:     "PAA.03"       unused   input  active-high 
+	line   4:     "PAA.04"       unused  output  active-high 
+	line   5:     "PAA.05" "regulator-vdd-3v3-pcie" output active-high [used]
+	line   6:     "PAA.06"       unused   input  active-high 
+	line   7:     "PAA.07"       unused   input  active-high 
+	line   8:     "PBB.00"       unused   input  active-high 
+	line   9:     "PBB.01"       unused   input  active-high 
+	line  10:     "PBB.02"       unused   input  active-high 
+	line  11:     "PBB.03"       unused  output  active-high 
+	line  12:     "PCC.00"       unused  output  active-high 
+	line  13:     "PCC.01"       unused  output  active-high 
+	line  14:     "PCC.02"       unused  output  active-high 
+	line  15:     "PCC.03"        "mux"  output  active-high [used]
+	line  16:     "PCC.04"       unused   input  active-high 
+	line  17:     "PCC.05"       unused   input  active-high 
+	line  18:     "PCC.06"       unused   input  active-high 
+	line  19:     "PCC.07"       unused   input  active-high 
+	line  20:     "PDD.00"       unused   input  active-high 
+	line  21:     "PDD.01"       unused   input  active-high 
+	line  22:     "PDD.02"       unused   input  active-high 
+	line  23:     "PEE.00"       unused   input  active-high 
+	line  24:     "PEE.01"       unused   input  active-high 
+	line  25:     "PEE.02"       unused   input  active-high 
+	line  26:     "PEE.03"       unused   input  active-high 
+	line  27:     "PEE.04"      "Power"   input   active-low [used]
+	line  28:     "PEE.05"       unused   input  active-high 
+	line  29:     "PEE.06"       unused   input  active-high 
+	line  30:     "PEE.07"       unused   input  active-high 
+	line  31:     "PGG.00"       unused   input  active-high 
+
+nvidia@nvidia-desktop:/boot$ ls
+dtb
+efi
+extlinux
+Image
+initrd
+initrd.img
+initrd.img-5.15.148-tegra
+kernel_tegra234-p3737-0000+p3701-0005-nv.dtb
+kernel_tegra234-p3768-0000+p3767-0000-nv-super.dtb
+kernel_tegra234-p3768-0000+p3767-0001-nv-super.dtb
+kernel_tegra234-p3768-0000+p3767-0003-nv-super.dtb
+kernel_tegra234-p3768-0000+p3767-0004-nv-super.dtb
+kernel_tegra234-p3768-0000+p3767-0005-nv.dtb
+kernel_tegra234-p3768-0000+p3767-0005-nv-super.dtb
+oot-stub
+tegra234-carveouts.dtbo
+tegra234-p3737-0000+p3701-0000-as-p3701-0004.dtbo
+tegra234-p3737-0000+p3701-0000-as-p3767-0000.dtbo
+tegra234-p3737-0000+p3701-0000-as-p3767-0001.dtbo
+tegra234-p3737-0000+p3701-0000-as-p3767-0003.dtbo
+tegra234-p3737-0000+p3701-0000-as-p3767-0004.dtbo
+tegra234-p3737-0000+p3701-0000-audio-adafruit-sph0645lm4h.dtbo
+tegra234-p3737-0000+p3701-0000-audio-adafruit-uda1334a.dtbo
+tegra234-p3737-0000+p3701-0000-audio-fe-pi.dtbo
+tegra234-p3737-0000+p3701-0000-audio-respeaker-4-mic-array.dtbo
+tegra234-p3737-0000+p3701-0000-audio-respeaker-4-mic-lin-array.dtbo
+tegra234-p3737-0000+p3701-0000-csi.dtbo
+tegra234-p3737-0000+p3701-0000.dtb
+tegra234-p3737-0000+p3701-0000-dynamic.dtbo
+tegra234-p3737-0000+p3701-0000-hdr40.dtbo
+tegra234-p3737-0000+p3701-0000-m2ke.dtbo
+tegra234-p3737-0000+p3701-0000-nv.dtb
+tegra234-p3737-0000+p3701-0004.dtb
+tegra234-p3737-0000+p3701-0004-nv.dtb
+tegra234-p3737-0000+p3701-0005.dtb
+tegra234-p3737-0000+p3701-0005-nv.dtb
+tegra234-p3737-0000+p3701-0008.dtb
+tegra234-p3737-0000+p3701-0008-nv.dtb
+tegra234-p3737-camera-dual-hawk-ar0234-e3653-overlay.dtbo
+tegra234-p3737-camera-dual-imx274-overlay.dtbo
+tegra234-p3737-camera-e3331-overlay.dtbo
+tegra234-p3737-camera-e3333-overlay.dtbo
+tegra234-p3737-camera-eCAM130A-overlay.dtbo
+tegra234-p3737-camera-imx185-overlay.dtbo
+tegra234-p3737-camera-imx390-addr-0x21-overlay.dtbo
+tegra234-p3737-camera-imx390-overlay.dtbo
+tegra234-p3737-camera-p3762-a00-1Hawk-overlay.dtbo
+tegra234-p3737-camera-p3762-a00-2Hawk-overlay.dtbo
+tegra234-p3737-camera-p3762-a00-3Hawk-3Owl-overlay.dtbo
+tegra234-p3737-camera-p3762-a00-4Hawk-overlay.dtbo
+tegra234-p3737-camera-p3762-a00-4Owl-overlay.dtbo
+tegra234-p3737-camera-p3762-a00-overlay.dtbo
+tegra234-p3740-0002+p3701-0008.dtb
+tegra234-p3740-0002+p3701-0008-hdr20.dtbo
+tegra234-p3740-0002+p3701-0008-m2kb.dtbo
+tegra234-p3740-0002+p3701-0008-m2ke.dtbo
+tegra234-p3740-0002+p3701-0008-nv.dtb
+tegra234-p3740-camera-p3783-a00-overlay.dtbo
+tegra234-p3767-0000+p3509-a02-audio-adafruit-sph0645lm4h.dtbo
+tegra234-p3767-0000+p3509-a02-audio-adafruit-uda1334a.dtbo
+tegra234-p3767-0000+p3509-a02-audio-fe-pi.dtbo
+tegra234-p3767-0000+p3509-a02-audio-respeaker-4-mic-array.dtbo
+tegra234-p3767-0000+p3509-a02-audio-respeaker-4-mic-lin-array.dtbo
+tegra234-p3767-0000+p3509-a02-csi.dtbo
+tegra234-p3767-0000+p3509-a02-hdr40.dtbo
+tegra234-p3767-0000+p3509-a02-m2ke.dtbo
+tegra234-p3767-0000+p3768-0000-csi.dtbo
+tegra234-p3767-camera-p3768-imx219-A.dtbo
+tegra234-p3767-camera-p3768-imx219-C.dtbo
+tegra234-p3767-camera-p3768-imx219-dual.dtbo
+tegra234-p3767-camera-p3768-imx219-imx477.dtbo
+tegra234-p3767-camera-p3768-imx477-A.dtbo
+tegra234-p3767-camera-p3768-imx477-C.dtbo
+tegra234-p3767-camera-p3768-imx477-dual-4lane.dtbo
+tegra234-p3767-camera-p3768-imx477-dual.dtbo
+tegra234-p3767-camera-p3768-imx477-imx219.dtbo
+tegra234-p3768-0000+p3767-0000.dtb
+tegra234-p3768-0000+p3767-0000-dynamic.dtbo
+tegra234-p3768-0000+p3767-0000-nv.dtb
+tegra234-p3768-0000+p3767-0000-nv-super.dtb
+tegra234-p3768-0000+p3767-0001.dtb
+tegra234-p3768-0000+p3767-0001-nv.dtb
+tegra234-p3768-0000+p3767-0001-nv-super.dtb
+tegra234-p3768-0000+p3767-0003.dtb
+tegra234-p3768-0000+p3767-0003-nv.dtb
+tegra234-p3768-0000+p3767-0003-nv-super.dtb
+tegra234-p3768-0000+p3767-0004.dtb
+tegra234-p3768-0000+p3767-0004-nv.dtb
+tegra234-p3768-0000+p3767-0004-nv-super.dtb
+tegra234-p3768-0000+p3767-0005.dtb
+tegra234-p3768-0000+p3767-0005-nv.dtb
+tegra234-p3768-0000+p3767-0005-nv-super.dtb
+tegra-optee.dtbo
+

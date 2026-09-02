@@ -1,0 +1,125 @@
+import Jetson.GPIO as GPIO
+import time
+
+# 物理引脚号
+PIN = 29
+
+# 使用物理引脚编号模式（BOARD 模式）
+GPIO.setmode(GPIO.BOARD)
+
+# 设置为输出口
+GPIO.setup(PIN, GPIO.OUT)
+
+try:
+    while True:
+        GPIO.output(PIN, GPIO.HIGH)   # LED 亮
+        time.sleep(1)
+        GPIO.output(PIN, GPIO.LOW)    # LED 灭
+        time.sleep(1)
+
+except KeyboardInterrupt:
+    pass
+
+finally:
+    GPIO.cleanup()
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#!/usr/bin/env python3
+
+import gpiod
+import time
+
+# Jetson Orin Nano: GPIO07 -> chip 'gpiochip0', line offset 489
+CHIP_NAME = "gpiochip0"
+LINE_OFFSET = 489  # GPIO07
+CONSUMER = "orin_gpio_example"
+
+def main():
+    print("Initializing GPIO...")
+    
+    # 打开 GPIO 芯片
+    chip = gpiod.Chip(CHIP_NAME)
+    
+    # 获取指定行（引脚）
+    line = chip.get_line(LINE_OFFSET)
+    
+    if not line:
+        raise RuntimeError(f"Failed to get line {LINE_OFFSET} from {CHIP_NAME}")
+    
+    # 请求该行为输出模式，初始值为低电平 (0)
+    line.request(consumer=CONSUMER, type=gpiod.LINE_REQ_DIR_OUT, default_vals=[0])
+    
+    print(f"GPIO{LINE_OFFSET} (GPIO07 / Pin 15) set as OUTPUT. Starting blink...")
+    
+    try:
+        while True:
+            line.set_value(1)  # 高电平
+            print("LED ON")
+            time.sleep(1)
+            
+            line.set_value(0)  # 低电平
+            print("LED OFF")
+            time.sleep(1)
+            
+    except KeyboardInterrupt:
+        print("\nExiting...")
+
+    finally:
+        # 释放资源
+        line.release()
+        chip.close()
+        print("GPIO cleaned up.")
+
+if __name__ == "__main__":
+    main()
+
+------------------------------------------------------------------------------------
+
+#!/usr/bin/env python3
+
+import gpiod
+import time
+
+# Jetson Orin Nano: GPIO01 -> chip 'gpiochip0', line offset 105
+CHIP_NAME = "gpiochip0"
+LINE_OFFSET = 105  # GPIO01
+CONSUMER = "orin_gpio_example"
+
+def main():
+    print("Initializing GPIO...")
+    
+    # 打开 GPIO 芯片
+    chip = gpiod.Chip(CHIP_NAME)
+    
+    # 获取指定行（引脚）
+    line = chip.get_line(LINE_OFFSET)
+    
+    if not line:
+        raise RuntimeError(f"Failed to get line {LINE_OFFSET} from {CHIP_NAME}")
+    
+    # 请求该行为输出模式，初始值为低电平 (0)
+    line.request(consumer=CONSUMER, type=gpiod.LINE_REQ_DIR_OUT, default_vals=[0])
+    
+    print(f"GPIO{LINE_OFFSET} (GPIO07 / Pin 15) set as OUTPUT. Starting blink...")
+    
+    try:
+        while True:
+            line.set_value(1)  # 高电平
+            print("LED ON")
+            time.sleep(5)
+            
+            line.set_value(0)  # 低电平
+            print("LED OFF")
+            time.sleep(5)
+            
+    except KeyboardInterrupt:
+        print("\nExiting...")
+
+    finally:
+        # 释放资源
+        line.release()
+        chip.close()
+        print("GPIO cleaned up.")
+
+if __name__ == "__main__":
+    main()
